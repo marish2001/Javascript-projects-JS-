@@ -1,0 +1,78 @@
+async function addapidetails()
+{
+    const response = await fetch("https://mimic-server-api.vercel.app/quotes",
+        {
+            method : 'POST',
+            headers:
+            {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify
+            ({
+                Author : "Dr Nedunchelian Ramanujam",
+                Quotes : "Mathematics is the best key element for an array"
+            })
+
+        }
+    )
+    const data = await response.json()
+    console.log(data)
+}
+
+addapidetails()
+
+async function updatedetails()
+{
+   const response = await fetch("https://mimic-server-api.vercel.app/quotes/47",
+    {
+        method : 'PUT',
+        headers:
+        {
+            'Content-type': 'application/json',
+        },
+        body:JSON.stringify
+        ({
+            Quotes: "Science is the best key for the medicine ",
+            Author : "Dr C.V.Raman"
+        })
+    }
+   )  
+   const data = await response.json()
+   console.log(data) 
+}
+
+updatedetails()
+
+async function deletedetails()
+{
+    const response = await fetch("https://mimic-server-api.vercel.app/quotes/43",
+        {
+            method : 'DELETE',
+        }
+    )
+   const data = await response.json()
+   console.log(data)
+}
+
+deletedetails()
+
+async function updatedetails()
+{
+    const response = await fetch("https://mimic-server-api.vercel.app/quotes/37",
+        {
+            method : 'PATCH',
+            headers: 
+            {
+                'Content-type' : 'application/json',
+            },
+            body : JSON.stringify
+            ({
+                author : "Anbu Marish",
+            }) 
+        }
+    )
+    const data = await response.json()
+    console.log(data)
+}
+
+updatedetails()
