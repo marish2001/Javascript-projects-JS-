@@ -1,0 +1,59 @@
+
+function getusername(name)
+{
+    return new Promise((resolve,reject)=>
+    {
+        console.log(" Get the User name",name)
+        setTimeout(()=>
+        {
+            resolve({id:1,name:"Marish"})
+        },2000)
+    })
+}
+
+function getsubscribename(subscribename)
+{
+    return new Promise((resolve,reject)=>
+    {
+        console.log("Got the subscription name for",subscribename.name)
+        setTimeout(()=>
+        {
+            resolve(
+                {id :1, ottsubscription: "Hotstar", amount : 200}
+        ,4000)
+        })
+    })
+}
+
+function getcostdetails(cost)
+{
+    return new Promise((resolve,reject)=>
+    {
+        console.log("Cost of the rate is",cost.ottsubscription)
+        setTimeout(()=>
+        {
+            resolve(cost.amount)
+        },5000)
+    })
+}
+
+async function gettotaldetatils()
+{
+    try
+    {
+    const usernames = await getusername("Marish")
+    const subscriptiondetails = await getsubscribename(usernames)
+    const totalcost = await getcostdetails(subscriptiondetails)
+    
+    console.log(usernames)
+    console.log(subscriptiondetails)
+    console.log(totalcost)
+    }
+
+    catch(error)
+    {
+        console.error("Catch the error details")
+    }
+}
+
+gettotaldetatils()
