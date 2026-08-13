@@ -1,0 +1,67 @@
+
+const express = require("express")
+const app = express()
+
+app.use(express.json())
+
+let quoteswriting =
+[
+    {
+        id : 1,
+        Food : "Idly",
+        Decsription : "Idly is my favourite food"
+    },
+
+    {
+         id : 2,
+         Food : "Dosai",
+         Decsription : "Dosai is the Indian homemade food"
+    },
+
+    {
+         id : 3,
+         Food : "Parotta",
+         Decsription : "Parotta is the worst food for digestion"
+    },
+
+    {
+          id : 4,
+          Food : "Noodles",
+          Decsription : "Noodles is a very favourite food"
+    }
+];
+
+app.get("/food",(request,response)=>
+{
+     response.status(200).json(quoteswriting)
+})
+
+app.listen(5000, ()=>
+{
+    console.log("Server unning on the website http://localhost:5000/food")
+})
+
+Output:
+
+[
+  {
+    "id": 1,
+    "Food": "Dosai",
+    "Decsription": "Dosai is the best food for the woman"
+  },
+  {
+    "id": 2,
+    "Food": "Idly",
+    "Decsription": "Idly is the best food for indian"
+  },
+  {
+    "id": 3,
+    "Food": "Parotta",
+    "Decsription": "Parotta is not a good food"
+  },
+  {
+    "id": 4,
+    "Food": "Chappathi",
+    "Decsription": "Chappathi is the best food for woman"
+  }
+]
